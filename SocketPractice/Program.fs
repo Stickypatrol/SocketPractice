@@ -16,7 +16,7 @@ type ProgramState =
     ClientSockets : List<Socket>
   }
 
-let localSettings = {LocalIP = IPAddress.Parse "192.168.1.69"; LocalPort = 8888}
+
 //just hardcode the IP for now. we can figure out a proper solution in the future
 
 let BootProgram (settings : Settings) =
@@ -42,7 +42,11 @@ let WriteSentData (socket:Socket) =
   let _ = (socket.Blocking = false)
   ()
 
-let socket = BootProgram localSettings
+//ACTUAL PROGRAM
+
+let settings = {LocalIP = (IPAddress.Parse "192.168.1.69"); LocalPort = 8888}
+
+let socket = BootProgram settings
 
 let rec MainServerLoop (serverSocket : Socket) =
   if (serverSocket.Available > 0) then

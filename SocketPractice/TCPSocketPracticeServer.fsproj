@@ -5,14 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>4c6586c0-a205-4d85-b1f5-4ab930931078</ProjectGuid>
+    <ProjectGuid>e35d24cf-4949-4dfa-be8d-96caf4ff3987</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SocketPracticeClient</RootNamespace>
-    <AssemblyName>SocketPracticeClient</AssemblyName>
+    <RootNamespace>SocketPractice</RootNamespace>
+    <AssemblyName>SocketPractice</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
-    <Name>SocketPracticeClient</Name>
+    <Name>TCPSocketPracticeServer</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Debug\SocketPracticeClient.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\SocketPractice.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Release\SocketPracticeClient.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\SocketPractice.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Monad.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>
