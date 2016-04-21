@@ -10,7 +10,7 @@ type Settings =
     LocalPort : int
   }
 
-let localSettings = {LocalIP = IPAddress.Parse "192.168.178.117"; LocalPort = 8888}
+let localSettings = {LocalIP = IPAddress.Parse "145.24.244.103"; LocalPort = Int32.Parse(Console.ReadLine())}
 
 let BootClient (settings : Settings) : Socket =
   printfn "initializing serversocket..."
@@ -20,7 +20,7 @@ let BootClient (settings : Settings) : Socket =
 
 let SendData (socket:Socket) (sett:Settings) =
   let buffer = Encoding.ASCII.GetBytes(Console.ReadLine())
-  ignore <| socket.SendTo(buffer, IPEndPoint(sett.LocalIP, sett.LocalPort))
+  ignore <| socket.SendTo(buffer, IPEndPoint(sett.LocalIP, 8888))
 
 //ACTUAL PROGRAM
 
@@ -31,4 +31,3 @@ let rec MainLoop (socket:Socket) (settings:Settings) =
   MainLoop socket settings
 
 do MainLoop socket localSettings
-

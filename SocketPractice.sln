@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TCPSocketPracticeServer", "SocketPractice\TCPSocketPracticeServer.fsproj", "{E35D24CF-4949-4DFA-BE8D-96CAF4FF3987}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UDPSocketPracticeServer", "UDPSocketPracticeServer\UDPSocketPracticeServer.fsproj", "{977CFCB8-F719-440C-AAC8-462E6FD7FAE2}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UDPSocketPracticeClient", "UDPSocketPracticeClient\UDPSocketPracticeClient.fsproj", "{720FC6E7-84AF-4A76-94E4-7FE7C1082DBA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UDP-P2P", "UDP-P2P\UDP-P2P.fsproj", "{D2AD48C8-5253-4A46-B65F-E3486717BCCB}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LidgrenServer", "LidgrenServer\LidgrenServer.fsproj", "{66CE992F-01AD-481B-BAC5-B08D4843E170}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{720FC6E7-84AF-4A76-94E4-7FE7C1082DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{720FC6E7-84AF-4A76-94E4-7FE7C1082DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{720FC6E7-84AF-4A76-94E4-7FE7C1082DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2AD48C8-5253-4A46-B65F-E3486717BCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2AD48C8-5253-4A46-B65F-E3486717BCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2AD48C8-5253-4A46-B65F-E3486717BCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2AD48C8-5253-4A46-B65F-E3486717BCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66CE992F-01AD-481B-BAC5-B08D4843E170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66CE992F-01AD-481B-BAC5-B08D4843E170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66CE992F-01AD-481B-BAC5-B08D4843E170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66CE992F-01AD-481B-BAC5-B08D4843E170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

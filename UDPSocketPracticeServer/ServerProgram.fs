@@ -10,7 +10,7 @@ type Settings =
     LocalPort : int
   }
 
-let localSettings = {LocalIP = IPAddress.Parse "192.168.178.117"; LocalPort = 8888}
+let localSettings = {LocalIP = IPAddress.Parse "145.24.244.103"; LocalPort = 8888}
 
 let BootProgram (settings : Settings) : Socket =
   printfn "initializing serversocket..."
@@ -34,25 +34,3 @@ let rec MainLoop (socket:Socket) =
   MainLoop socket
 
 do MainLoop socket
-
-
-
-
-
-
-//snippet of code from another project
-(*
-let serviceClient (client: TcpClient) =
-    let buffer = Array.create 1000 (new Byte())
-    use stream = client.GetStream()
-    stream.Write(buffer, 0, 1000)  // write header
-    while true do
-        client
-
-let asyncServiceClient (client: TcpClient) = async {
-    use stream = client.GetStream()
-    do! stream.AsyncWrite(quote, 0, 1)  // write header
-    while true do
-        do! asyncWriteStockQuote(stream) }
-
-async*)

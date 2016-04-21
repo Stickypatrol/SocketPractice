@@ -3,6 +3,7 @@ open System.Text
 open System.Net
 open System.Net.Sockets
 open Monad
+open Newtonsoft.Json
 
 type Settings =
   {
@@ -31,26 +32,32 @@ let BootProgram (settings : Settings) =
 let rec connectClient (serverSocket:Socket) =
   if serverSocket.Poll(1000, SelectMode.SelectRead) then
     printfn "accepting client"
-    (serverSocket.Accept())
+    let client = (serverSocket.Accept())
+    client, serverSocket
   else
     connectClient serverSocket
 
-let WriteSentData (socket:Socket) =
+let WriteSentData (clientSocket:Socket) (serverSocket:Socket) =
   let buffer = Array.create 50 (new Byte())
-  let _ = socket.Receive(buffer)
-  printfn "Data received is: %A" (Encoding.ASCII.GetString(buffer))
-  let _ = (socket.Blocking = false)
+  let _ = clientSocket.Receive(buffer)
+  let x = JsonConvert.DeserializeObject<List<float>*List<float>>(Encoding.ASCII.GetString(buffer))
+  printfn "Data received is: %A" x
+  List.iter2 (fun x y -> printfn "item in the list is %A and %A" x y) (fst x) (snd x)
+  ignore <| clientSocket.Send(buffer)
+  let _ = (serverSocket.Blocking = false)
   ()
 
 //ACTUAL PROGRAM
 
-let settings = {LocalIP = (IPAddress.Parse "192.168.1.69"); LocalPort = 8888}
+let settings = {LocalIP = (IPAddress.Parse "145.24.221.121"); LocalPort = 8888}
 
 let socket = BootProgram settings
 
-let rec MainServerLoop (serverSocket : Socket) =
-  if (serverSocket.Available > 0) then
-    WriteSentData serverSocket
-  MainServerLoop serverSocket
+let rec MainServerLoop (clientSocket:Socket) (serverSocket : Socket) =
+  if (clientSocket.Available > 0) then
+    WriteSentData clientSocket serverSocket
+  MainServerLoop clientSocket serverSocket
 
-do MainServerLoop (connectClient socket)
+
+let client, server = connectClient socket
+do MainServerLoop client server
